@@ -1,4 +1,5 @@
 # Copyright 2014 The Android Open Source Project
+# Copyright 2016 The Maru OS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,10 +19,14 @@ TARGET_KERNEL_CONFIG := aosp_shinano_sirius_defconfig
 $(call inherit-product, device/sony/sirius/device.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, vendor/maruos/device-maru.mk)
+$(call inherit-product, vendor/maruos/BoardConfigVendor.mk)
 
-PRODUCT_NAME := aosp_d6503
+# allow /vendor/maruos files
+PRODUCT_RESTRICT_VENDOR_FILES := false
+
+PRODUCT_NAME := maru_d6503
 PRODUCT_DEVICE := sirius
 PRODUCT_MODEL := Xperia Z2 (AOSP)
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
-
